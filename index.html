@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <audio id="musik" loop>
+    <source src="music.mp3" type="audio/mp3" />
+  </audio>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="img/flowers.png" type="image/x-icon" />
+    <title>Flowers</title>
+  </head>
+  <body>
+    <div class="greetings">
+      <span>S</span>
+      <span>A</span>
+      <span>S</span>
+      <span>A</span>
+    </div>
+    <div class="description" style="text-align: center">
+      <span>Aku punya sesuatu buat kamu</span><br /><span>૮₍ ˶ᵔ ᵕ ᵔ˶ ₎ა</span>
+    </div>
+    <br />
+    <div class="button">
+      <button id="tombol-klik">
+        <a href="flower.html">Klik disini</a>
+      </button>
+    </div>
+
+    <script src="main.js"></script>
+
+    <script>
+      const audio = document.getElementById("musik");
+      const button = document.getElementById("tombol-klik");
+      const link = button.querySelector("a");
+
+      button.addEventListener("click", (event) => {
+        event.preventDefault();
+        audio.play().catch((error) => {
+          console.error("Gagal memutar audio di index:", error);
+        });
+
+        sessionStorage.setItem("playMusic", "true");
+
+        setTimeout(() => {
+          window.location.href = link.href;
+        }, 50);
+      });
+    </script>
+  </body>
+</html>
